@@ -1,3 +1,9 @@
+using Application.CustomCQRS;
+using Application.CustomCQRS.Commands.Products;
+using Application.CustomCQRS.Handlers.Products;
+using Application.CustomCQRS.Interfaces;
+using Application.CustomCQRS.Models;
+using Application.CustomCQRS.Queries.Products;
 using Application.Domain.Entities;
 using Application.Interfaces;
 using Application.Queries;
@@ -35,7 +41,15 @@ namespace API
 
             services.AddControllers();
             services.AddSingleton<IDataAccess<Product>, DemoDataAccess>();
+           
+            //custom CQRS
+            services.AddSingleton<Messages>();
+            services.AddTransient<ICommandHandler<CreateNewProductCommand>, CreateNewProductCommandHandler>();
+            services.AddTransient<IQueryHandler<GetProductByIdCustomQuery,Result<Product>>, GetProductByIdCustomQueryHandler>();
+            services.AddTransient<IQueryHandler<GetProductListCustomQuery,Result<List<Product>>>, GetProductListCustomQueryHandler>();
             //services.AddSingleton(typeof(IDataAccess<>),typeof(DemoDataAccess));
+      
+            
             services.AddMediatR(typeof(GetProductListQuery).Assembly);
             services.AddSwaggerGen(c =>
             {
