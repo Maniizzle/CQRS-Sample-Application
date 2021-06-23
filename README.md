@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # CQRS-Sample-Application
 =======
 
@@ -8,4 +7,5 @@
 ## Feature
 * Implementation of Clean Architecture 
 * Implementation of  CQRS using MediatR
->>>>>>> 8974071270293e10b0fb4d0cef2a4fcd4ed449d6
+* Custom Implementation of  CQRS without using any Library
+
