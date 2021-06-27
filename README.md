@@ -1,4 +1,4 @@
-# CQRS-Sample-Application
+# Command Query Responibility Segregation(CQRS) Sample-Application
 =======
 
 # A Simple Web API 
